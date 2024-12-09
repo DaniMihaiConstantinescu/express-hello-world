@@ -5,10 +5,8 @@ const port = process.env.PORT || 3001;
 app.get("/", (req, res) => res.type('html').send(html));
 
 app.get("/time", (req, res) => {
-  const time = new Date();
-  res.json({
-    "time": time.getHours() + ":" + time.getMinutes()
-  });
+  const time = new Date().toISOString();
+  res.json(time)
 });
 
 const server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));
